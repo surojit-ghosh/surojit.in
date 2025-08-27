@@ -3,12 +3,11 @@
 import React from "react";
 import Container from "./container";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
-import { MoonStarIcon, SunIcon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { buttonVariants } from "./ui/button";
 import { USER } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
+import { ThemeToggle } from "./theme-toggle";
 
 type Link = {
     name: string;
@@ -22,20 +21,18 @@ const links: Link[] = [
 ];
 
 const Header = () => {
-    const { theme, setTheme } = useTheme();
-
-    const handleToggleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
-
     return (
         <header className="bg-background sticky top-0 z-50 pt-2 [&>div]:border-t">
             <Container className="flex flex-row items-center justify-between p-2">
-                <h1 className="text-xl font-bold tracking-tight">{USER.logo}</h1>
+                <Link href={"/"}>
+                    <h1 className="bg-mutedd rounded-lg px-2 py-0.5 text-xl font-bold">
+                        {USER.logo}
+                    </h1>
+                </Link>
 
                 <div className="flex items-center gap-4">
                     {/* Links */}
-                    <div className="hidden space-x-4">
+                    <div className="space-x-4">
                         {links.map((link: Link) => (
                             <Link
                                 key={link.href}
@@ -48,21 +45,8 @@ const Header = () => {
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <Button
-                            size={"icon"}
-                            variant={"outline"}
-                            className="size-8 cursor-pointer rounded-full"
-                            onClick={handleToggleTheme}
-                        >
-                            {theme === "dark" ? (
-                                <SunIcon className="size-4" />
-                            ) : (
-                                <MoonStarIcon className="size-4" />
-                            )}
-                        </Button>
-
                         <Link
-                            href={"https://github.com/surojit-ghosh/website"}
+                            href={"https://github.com/surojit-ghosh/surojit.in"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={cn(
@@ -72,6 +56,7 @@ const Header = () => {
                         >
                             <Icons.github className="size-4" />
                         </Link>
+                        <ThemeToggle />
                     </div>
                 </div>
             </Container>
