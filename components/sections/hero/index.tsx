@@ -6,7 +6,7 @@ const HeroSection = () => {
         <div className="flex items-center gap-4">
             <Image
                 className="rounded-full"
-                src="/surojit.jpg"
+                src="/surojit.png"
                 alt="Hero Image"
                 width={100}
                 height={100}
