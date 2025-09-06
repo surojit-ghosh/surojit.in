@@ -122,12 +122,4 @@
   body {
     @apply bg-background text-foreground;
   }
-
-  html {
-    transition: color 350ms ease, background-color 350ms ease;
-  }
-
-  html * {
-    transition: color 350ms ease, background-color 350ms ease, border-color 350ms ease, opacity 350ms ease, transform 350ms ease;
-  }
 }

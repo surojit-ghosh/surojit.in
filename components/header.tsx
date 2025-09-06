@@ -8,6 +8,13 @@ import { USER } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
 import { ThemeToggle } from "./theme-toggle";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu } from "lucide-react";
 
 type Link = {
     name: string;
@@ -30,9 +37,9 @@ const Header = () => {
                     </h1>
                 </Link>
 
-                <div className="flex items-center gap-4">
-                    {/* Links */}
-                    <div className="space-x-4">
+                <div className="flex items-center gap-2">
+                    {/* Desktop Navigation */}
+                    <div className="hidden space-x-4 md:flex">
                         {links.map((link: Link) => (
                             <Link
                                 key={link.href}
@@ -44,19 +51,48 @@ const Header = () => {
                         ))}
                     </div>
 
-                    <div className="flex items-center gap-2">
-                        <Link
-                            href={"https://github.com/surojit-ghosh/surojit.in"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={cn(
-                                buttonVariants({ variant: "outline", size: "icon" }),
-                                "size-8 cursor-pointer rounded-full"
-                            )}
-                        >
-                            <Icons.github className="size-4" />
-                        </Link>
-                        <ThemeToggle />
+                    <Link
+                        href={"https://github.com/surojit-ghosh/surojit.in"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={cn(
+                            buttonVariants({ variant: "outline", size: "icon" }),
+                            "size-8 cursor-pointer rounded-full"
+                        )}
+                    >
+                        <Icons.github className="size-4" />
+                    </Link>
+                    <ThemeToggle />
+
+                    {/* Mobile Navigation */}
+                    <div className="md:hidden">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <button
+                                    className={cn(
+                                        buttonVariants({ variant: "outline", size: "icon" }),
+                                        "size-8 cursor-pointer rounded-full"
+                                    )}
+                                >
+                                    <Menu className="size-4" />
+                                    <span className="sr-only">Toggle menu</span>
+                                </button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                                side="bottom"
+                                align="end"
+                                sideOffset={8}
+                                className=""
+                            >
+                                {links.map((link) => (
+                                    <DropdownMenuItem key={link.href} asChild>
+                                        <Link href={link.href} className="w-full">
+                                            {link.name}
+                                        </Link>
+                                    </DropdownMenuItem>
+                                ))}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </div>
                 </div>
             </Container>
