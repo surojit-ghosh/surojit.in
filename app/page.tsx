@@ -1,10 +1,13 @@
-import Container from "@/components/container";
+import Divider from "@/components/divider";
 import HeroSection from "@/components/sections/hero";
+import Projects from "@/components/sections/projects";
 
 export default function Home() {
     return (
-        <Container className="">
+        <>
             <HeroSection />
-        </Container>
+            <Divider />
+            <Projects />
+        </>
     );
 }

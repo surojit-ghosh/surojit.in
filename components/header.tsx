@@ -58,7 +58,7 @@ const Header = () => {
                             rel="noopener noreferrer"
                             className={cn(
                                 buttonVariants({ variant: "outline", size: "icon" }),
-                                "size-8 cursor-pointer rounded-full"
+                                "size-8 rounded-full"
                             )}
                         >
                             <Icons.github className="size-4" />
@@ -72,7 +72,7 @@ const Header = () => {
                                     <Button
                                         size={"icon"}
                                         variant="outline"
-                                        className="size-8 cursor-pointer rounded-full"
+                                        className="size-8 rounded-full"
                                     >
                                         <Menu className="size-4" />
                                         <span className="sr-only">Toggle menu</span>
