@@ -5,9 +5,10 @@ import { AspectRatio } from "./ui/aspect-ratio";
 import Image from "next/image";
 import { Icons } from "./icons";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { Button } from "./ui/button";
-import { techStack } from "./techs";
+import { techStack } from "../lib/techs";
 import { SimpleTooltip } from "./ui/tooltip";
+import { buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }) => {
     return (
@@ -43,7 +44,7 @@ const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }
 
             <p className="text-muted-foreground">{details.description}</p>
 
-            <div className="flex flex-wrap items-center gap-0.5">
+            <div className="mt-auto flex flex-wrap items-center gap-0.5">
                 {details.techStack?.map((tech) => {
                     const Icon = techStack.find((t) => t.key === tech);
 
@@ -62,7 +63,7 @@ const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }
                 })}
             </div>
 
-            <div className="mt-auto flex items-center justify-between">
+            <div className="flex items-center justify-between">
                 {details.stat == false ? (
                     <div className="inline-flex items-center justify-center gap-2 rounded-full bg-red-400/20 px-3 py-1 text-xs">
                         <span className="block h-2 w-2 animate-pulse rounded-full bg-red-400" />
@@ -74,13 +75,15 @@ const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }
                     </div>
                 )}
 
-                <Button
-                    variant="ghost"
-                    size={"sm"}
-                    className="text-muted-foreground hover:text-foreground/80 hover:bg-transparent dark:hover:bg-transparent"
+                <Link
+                    href={`/projects/${slug}`}
+                    className={cn(
+                        buttonVariants({ variant: "ghost", size: "sm" }),
+                        "text-muted-foreground hover:text-foreground/80 hover:bg-transparent dark:hover:bg-transparent"
+                    )}
                 >
                     View Details <ArrowRight className="size-4" />
-                </Button>
+                </Link>
             </div>
         </div>
     );
