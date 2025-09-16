@@ -19,18 +19,18 @@ const HeroSection = () => {
                 />
 
                 <div className="flex-1">
-                    <h1 className="text-foreground text-2xl font-semibold tracking-tight md:text-3xl">
+                    <h1 className="text-foreground font-sans text-2xl font-semibold tracking-tight md:text-3xl">
                         {USER.name}
                     </h1>
                     <p className="text-muted-foreground text-sm md:text-base">{USER.subheading}</p>
                 </div>
             </div>
 
-            <h2 className="text-muted-foreground text-base leading-7">{USER.description}</h2>
+            <h2 className="text-muted-foreground text-base">{USER.description}</h2>
 
-            <div className="flex space-x-4 pt-4">
+            <div className="flex gap-2 pt-4">
                 <Link
-                    href={`mailto:${USER.mail}`}
+                    href={"/resume.pdf"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
@@ -59,7 +59,7 @@ const HeroSection = () => {
                         rel="noopener noreferrer"
                         className={cn(
                             buttonVariants({ variant: "outline", size: "icon" }),
-                            "size-8"
+                            "inset-shadow-muted-foreground/20 size-8 border-0 inset-shadow-2xs"
                         )}
                     >
                         <link.icon className="size-4" />

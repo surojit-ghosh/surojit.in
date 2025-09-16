@@ -1,6 +1,6 @@
 import Divider from "@/components/divider";
-import HeroSection from "@/components/sections/hero";
-import Projects from "@/components/sections/projects";
+import HeroSection from "./sections/hero";
+import Projects from "./sections/projects";
 
 export default function Home() {
     return (
@@ -8,6 +8,7 @@ export default function Home() {
             <HeroSection />
             <Divider />
             <Projects />
+            <Divider />
         </>
     );
 }
