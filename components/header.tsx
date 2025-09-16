@@ -29,7 +29,7 @@ const links: Link[] = [
 
 const Header = () => {
     return (
-        <header className="bg-background/75 sticky top-0 z-50 pt-2 backdrop-blur-lg [&>div]:border-t">
+        <header className="bg-background/75 sticky top-0 z-50 pt-2 shadow-[0_0_16px_0_black]/8 backdrop-blur-lg dark:shadow-[0_0_16px_0_black]/80 [&>div]:border-t">
             <Container className="flex flex-row items-center justify-between p-2">
                 <Link href={"/"}>
                     <h1 className="rounded-lg px-2 py-0.5 text-xl font-bold">{USER.logo}</h1>

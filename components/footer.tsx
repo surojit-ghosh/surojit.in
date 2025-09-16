@@ -1,11 +1,11 @@
 import React from "react";
 import Container from "./container";
-import Divider from "./divider";
+// import Divider from "./divider";
 import Link from "next/link";
 
 const Footer = () => {
     return (
-        <footer className="">
+        <footer className="mb-2">
             <Container className="text-muted-foreground text-center text-sm">
                 Built by{" "}
                 <Link
@@ -27,7 +27,7 @@ const Footer = () => {
                 </Link>
                 .
             </Container>
-            <Divider className="mb-2" />
+            {/* <Divider className="mb-2" /> */}
         </footer>
     );
 };
