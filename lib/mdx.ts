@@ -10,6 +10,8 @@ export type IFrontMatter = {
     featured?: boolean;
     github?: string;
     preview?: string;
+    stat?: boolean | string;
+    techStack?: string[];
 };
 
 const getFiles = async (dir: string) => {

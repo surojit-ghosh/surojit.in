@@ -1,10 +1,16 @@
-import Container from "./container";
+import { cn } from "@/lib/utils";
 
-const Divider = () => {
+const Divider: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+    className,
+}: {
+    className?: string;
+}) => {
     return (
-        <Container className="!p-0">
-            <div className="h-6 bg-[image:repeating-linear-gradient(315deg,_var(--muted)_0,_var(--muted)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed" />
-        </Container>
+        <div className={cn(className, "border-b")}>
+            <div className={"mx-auto w-full max-w-3xl border-x"}>
+                <div className="h-6 bg-[image:repeating-linear-gradient(315deg,_var(--muted)_0,_var(--muted)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed" />
+            </div>
+        </div>
     );
 };
 

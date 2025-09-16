@@ -3,6 +3,7 @@ import ProjectsCard from "@/components/proejcts-card";
 import { buttonVariants } from "@/components/ui/button";
 import { getProjects, IFrontMatter } from "@/lib/mdx";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const Projects = async () => {
@@ -35,7 +36,7 @@ const Projects = async () => {
                             "mx-auto"
                         )}
                     >
-                        See all Projects
+                        See all Projects <ArrowRight className="size-4" />
                     </Link>
                 </div>
             </Container>

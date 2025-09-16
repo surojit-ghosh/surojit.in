@@ -4,11 +4,14 @@ import React from "react";
 import { AspectRatio } from "./ui/aspect-ratio";
 import Image from "next/image";
 import { Icons } from "./icons";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { Button } from "./ui/button";
+import { techStack } from "./techs";
+import { SimpleTooltip } from "./ui/tooltip";
 
 const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }) => {
     return (
-        <div className="bg-card col-span-1 space-y-4 p-4">
+        <div className="bg-card col-span-1 flex h-full flex-col space-y-4 p-4 shadow-sm">
             <AspectRatio ratio={16 / 9} className="bg-muted">
                 {details.image && (
                     <Image
@@ -37,7 +40,48 @@ const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }
                     )}
                 </div>
             </div>
+
             <p className="text-muted-foreground">{details.description}</p>
+
+            <div className="flex flex-wrap items-center gap-0.5">
+                {details.techStack?.map((tech) => {
+                    const Icon = techStack.find((t) => t.key === tech);
+
+                    return (
+                        <span
+                            className="scale-90 transition-transform duration-300 hover:scale-110"
+                            key={tech}
+                        >
+                            {Icon && (
+                                <SimpleTooltip content={Icon.name}>
+                                    <Icon.icon className="size-6" />
+                                </SimpleTooltip>
+                            )}
+                        </span>
+                    );
+                })}
+            </div>
+
+            <div className="mt-auto flex items-center justify-between">
+                {details.stat == false ? (
+                    <div className="inline-flex items-center justify-center gap-2 rounded-full bg-red-400/20 px-3 py-1 text-xs">
+                        <span className="block h-2 w-2 animate-pulse rounded-full bg-red-400" />
+                        <h3>Building</h3>
+                    </div>
+                ) : (
+                    <div className="inline-flex items-center justify-center gap-2 rounded-full bg-green-400/20 px-3 py-1 text-xs">
+                        <h3>{details.stat}</h3>
+                    </div>
+                )}
+
+                <Button
+                    variant="ghost"
+                    size={"sm"}
+                    className="text-muted-foreground hover:text-foreground/80 hover:bg-transparent dark:hover:bg-transparent"
+                >
+                    View Details <ArrowRight className="size-4" />
+                </Button>
+            </div>
         </div>
     );
 };

@@ -29,12 +29,10 @@ const links: Link[] = [
 
 const Header = () => {
     return (
-        <header className="bg-background sticky top-0 z-50 pt-2 [&>div]:border-t">
+        <header className="bg-background/75 sticky top-0 z-50 pt-2 backdrop-blur-lg [&>div]:border-t">
             <Container className="flex flex-row items-center justify-between p-2">
                 <Link href={"/"}>
-                    <h1 className="bg-mutedd rounded-lg px-2 py-0.5 text-xl font-bold">
-                        {USER.logo}
-                    </h1>
+                    <h1 className="rounded-lg px-2 py-0.5 text-xl font-bold">{USER.logo}</h1>
                 </Link>
 
                 <div className="flex items-center gap-4">
