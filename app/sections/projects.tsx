@@ -7,19 +7,19 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const Projects = async () => {
-    const allProjects = await getProjects();
+    const allProjects = await getProjects({ featured: true });
 
     return (
         <>
             <Container className="space-y-4 py-0">
-                <h1 className="flex items-center gap-1 font-sans text-2xl font-semibold">
+                <h1 className="text-3xl font-semibold">
                     Projects
-                    <span className="text-muted-foreground font-sans text-sm">
+                    <sup className="text-muted-foreground ml-1 font-mono text-sm select-none">
                         ({allProjects.length})
-                    </span>
+                    </sup>
                 </h1>
             </Container>
-            <Container className="space-y-8 py-8">
+            <Container className="space-y-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     {allProjects.map(
                         ({ slug, details }: { slug: string; details: IFrontMatter }) => (

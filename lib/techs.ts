@@ -8,4 +8,7 @@ export const techStack = [
     { name: "TypeScript", key: "ts", icon: Icons.ts },
     { name: "MongoDB", key: "mongo", icon: Icons.mongo },
     { name: "Shadcn UI", key: "shadcnui", icon: Icons.shadcnui },
+    { name: "PostgreSQL", key: "pg", icon: Icons.pg },
+    { name: "MDX", key: "mdx", icon: Icons.mdx },
+    { name: "Prisma", key: "prisma", icon: Icons.prisma },
 ];

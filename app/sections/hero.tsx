@@ -1,5 +1,6 @@
 import Container from "@/components/container";
 import { buttonVariants } from "@/components/ui/button";
+import { SimpleTooltip } from "@/components/ui/tooltip";
 import { ISocialLink, SOCIAL_LINKS, USER } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { FileText, Send } from "lucide-react";
@@ -8,7 +9,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
     return (
-        <Container className="space-y-4 py-8">
+        <Container className="space-y-4">
             <div className="flex items-start gap-4">
                 <Images
                     className="rounded-xl"
@@ -52,19 +53,20 @@ const HeroSection = () => {
 
             <div className="flex gap-2">
                 {SOCIAL_LINKS.map((link: ISocialLink, index: number) => (
-                    <Link
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(
-                            buttonVariants({ variant: "outline", size: "icon" }),
-                            "inset-shadow-muted-foreground/20 size-8 border-0 inset-shadow-2xs"
-                        )}
-                    >
-                        <link.icon className="size-4" />
-                        <span className="sr-only">{link.platform}</span>
-                    </Link>
+                    <SimpleTooltip side="bottom" key={index} content={link.platform}>
+                        <Link
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={cn(
+                                buttonVariants({ variant: "outline", size: "icon" }),
+                                "inset-shadow-muted-foreground/20 size-8 border-0 inset-shadow-2xs"
+                            )}
+                        >
+                            <link.icon className="size-4" />
+                            <span className="sr-only">{link.platform}</span>
+                        </Link>
+                    </SimpleTooltip>
                 ))}
             </div>
         </Container>

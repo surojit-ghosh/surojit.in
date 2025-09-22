@@ -1,0 +1,181 @@
+---
+title: "Fusion Ticket Tool Dashboard"
+description: "A dashboard for managing and analyzing support tickets with real-time analytics."
+date: "2025-09-25"
+image: "/assets/projects/fusion.png"
+featured: true
+# github: "https://github.com/surojit-ghosh/fusion-ticket-tool"
+preview: "https://fusion.surojit.in"
+stat: false
+techStack: ["nextjs", "react", "ts", "tailwind", "shadcnui", "prisma", "pg"]
+---
+
+**Fusion Ticket Tool Dashboard** is a modern, full-stack support ticket management system designed to streamline customer service operations. Built with performance and user experience in mind, it provides teams with powerful tools to track, prioritize, and resolve customer issues efficiently.
+
+> ⚠️ This project is currently **under active development**. New features and improvements are being added regularly.
+
+---
+
+## 🎯 Overview
+
+Fusion addresses the common pain points in customer support by providing an intuitive interface for ticket management, real-time collaboration, and comprehensive analytics. Whether you're a small startup or a growing company, Fusion scales to meet your support needs.
+
+---
+
+## ✨ Key Features
+
+### 📊 **Dashboard & Analytics**
+- Real-time ticket metrics and performance insights
+- Visual charts for response times and resolution rates
+- Team productivity analytics
+- Custom reporting and data export
+
+### 🎫 **Ticket Management**
+- Smart ticket categorization and tagging
+- Priority-based assignment system
+- Automated escalation workflows
+- Rich text editor with file attachments
+
+### 👥 **Team Collaboration**
+- Internal notes and team discussions
+- Agent assignment and workload balancing
+- Role-based permissions and access control
+- Activity timeline and audit logs
+
+### 🔔 **Notifications & Automation**
+- Real-time notifications for new tickets
+- Automated responses and routing rules
+- SLA tracking and breach alerts
+- Email integration and sync
+
+---
+
+## 🛠 Technology Stack
+
+### **Frontend**
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - Modern UI components
+- **React Hook Form** - Form validation and management
+
+### **Backend & Database**
+- **Prisma ORM** - Type-safe database access
+- **PostgreSQL** - Robust relational database
+- **NextAuth.js** - Authentication and session management
+- **Zod** - Runtime type validation
+
+### **Infrastructure**
+- **Vercel** - Deployment and hosting
+- **Vercel Postgres** - Managed database
+- **Uploadthing** - File upload handling
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+```bash
+Node.js 18+ and npm/yarn/pnpm
+PostgreSQL database (local or hosted)
+```
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/surojit-ghosh/fusion-ticket-tool
+cd fusion-ticket-tool
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Configure your database URL and other secrets
+
+# Set up the database
+npm run db:push
+npm run db:seed
+
+# Start the development server
+npm run dev
+```
+
+### Environment Variables
+```env
+DATABASE_URL="postgresql://..."
+NEXTAUTH_SECRET="your-secret-key"
+NEXTAUTH_URL="http://localhost:3000"
+UPLOADTHING_SECRET="your-uploadthing-secret"
+```
+
+---
+
+## 📱 Screenshots & Demo
+
+### Dashboard Overview
+The main dashboard provides a comprehensive view of all support metrics, including:
+- Open ticket counts by priority
+- Average response and resolution times
+- Team performance indicators
+- Recent activity feed
+
+### Ticket Management
+- Streamlined ticket creation and editing
+- Drag-and-drop priority management
+- Advanced filtering and search capabilities
+- Bulk actions for efficient processing
+
+---
+
+## 🎯 Roadmap
+
+### **Phase 1** (Current)
+- [x] Core ticket CRUD operations
+- [x] User authentication and roles
+- [x] Basic dashboard analytics
+- [ ] File attachment system
+- [ ] Email notifications
+
+### **Phase 2** (Next)
+- [ ] Advanced search and filtering
+- [ ] Automated workflow rules
+- [ ] SLA management and tracking
+- [ ] Mobile-responsive improvements
+
+### **Phase 3** (Future)
+- [ ] API for third-party integrations
+- [ ] Advanced reporting and exports
+- [ ] Multi-language support
+- [ ] Mobile applications
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+
+### Development Guidelines
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/) and [shadcn/ui](https://ui.shadcn.com/)
+- Icons by [Lucide](https://lucide.dev/)
+- Hosted on [Vercel](https://vercel.com/)
+
+---
+
+**Want to see it in action?** [Visit the live demo](https://fusion.surojit.in) or check out the codebase for implementation details.

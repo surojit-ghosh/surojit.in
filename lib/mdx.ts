@@ -19,32 +19,37 @@ const getFiles = async (dir: string) => {
     return files;
 };
 
-export const getProjects = async () => {
+export const getProjects = async ({ featured = false }: { featured?: boolean } = {}) => {
     const projects = await getFiles("projects");
 
     const allProjects = await Promise.all(
         projects.map(async (project) => {
             const slug = project.replace(".mdx", "");
-            const details = await getDetailsBySlug("projects", slug);
+            const { frontmatter } = await getDetailsBySlug("projects", slug);
 
-            return { slug, details };
+            return { slug, details: frontmatter };
         })
     );
+
+    if (featured) {
+        return allProjects.filter((project) => project.details.featured === true);
+    }
+
     return allProjects;
 };
 
-const getDetailsBySlug = async (dir: string, slug: string) => {
+export const getDetailsBySlug = async (dir: string, slug: string) => {
     const source = await fs.readFile(
         path.join(process.cwd(), `content/${dir}/${slug}.mdx`),
         "utf-8"
     );
 
-    const { frontmatter } = await compileMDX<IFrontMatter>({
+    const { frontmatter, content } = await compileMDX<IFrontMatter>({
         source,
         options: {
             parseFrontmatter: true,
         },
     });
 
-    return frontmatter;
+    return { frontmatter, content };
 };

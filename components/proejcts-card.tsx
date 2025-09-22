@@ -12,32 +12,38 @@ import { cn } from "@/lib/utils";
 
 const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }) => {
     return (
-        <div className="bg-card col-span-1 flex h-full flex-col space-y-4 p-4 shadow-sm">
-            <AspectRatio ratio={16 / 9} className="bg-muted">
+        <div className="bg-card col-span-1 flex h-full flex-col space-y-4 rounded-sm p-4 shadow-sm">
+            <AspectRatio ratio={16 / 9} className="bg-muted rounded-sm">
                 {details.image && (
                     <Image
                         src={details.image as string}
                         alt={details.title}
                         fill
-                        className="object-cover"
+                        className="rounded-sm object-cover"
                     />
                 )}
             </AspectRatio>
             <div className="flex items-center justify-between">
                 <Link key={slug} href={`/projects/${slug}`}>
-                    <h2 className="font-sans text-xl font-semibold">{details.title}</h2>
+                    <h2 className="font-sans text-xl font-semibold hover:underline">
+                        {details.title}
+                    </h2>
                 </Link>
                 <div className="flex items-center justify-center gap-2">
                     {details.github && (
-                        <Link href={details.github} target="_blank" rel="noopener noreferrer">
-                            <Icons.github className="text-muted-foreground size-5" />
-                        </Link>
+                        <SimpleTooltip content={"View Source Code"}>
+                            <Link href={details.github} target="_blank" rel="noopener noreferrer">
+                                <Icons.github className="text-muted-foreground size-5" />
+                            </Link>
+                        </SimpleTooltip>
                     )}
 
                     {details.preview && (
-                        <Link href={details.preview} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="text-muted-foreground size-5" />
-                        </Link>
+                        <SimpleTooltip content={"View Live Preview"}>
+                            <Link href={details.preview} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="text-muted-foreground size-5" />
+                            </Link>
+                        </SimpleTooltip>
                     )}
                 </div>
             </div>
