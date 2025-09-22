@@ -1,3 +1,5 @@
+"use client";
+
 import { IFrontMatter } from "@/lib/mdx";
 import Link from "next/link";
 import React from "react";
@@ -9,14 +11,21 @@ import { techStack } from "../lib/techs";
 import { SimpleTooltip } from "./ui/tooltip";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }) => {
+    const { theme } = useTheme();
+
     return (
         <div className="bg-card col-span-1 flex h-full flex-col space-y-4 rounded-sm p-4 shadow-sm">
             <AspectRatio ratio={16 / 9} className="bg-muted rounded-sm">
                 {details.image && (
                     <Image
-                        src={details.image as string}
+                        src={
+                            theme === "dark"
+                                ? (details.image as string).replace(/\.png$/, "-dark.png")
+                                : (details.image as string).replace(/\.png$/, "-light.png")
+                        }
                         alt={details.title}
                         fill
                         className="rounded-sm object-cover"
@@ -70,14 +79,15 @@ const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }
             </div>
 
             <div className="flex items-center justify-between">
-                {details.stat == false ? (
-                    <div className="inline-flex items-center justify-center gap-2 rounded-full bg-red-400/20 px-3 py-1 text-xs">
-                        <span className="block h-2 w-2 animate-pulse rounded-full bg-red-400" />
+                {details.status == false ? (
+                    <div className="text-muted-foreground inline-flex items-center justify-center gap-2 rounded-full bg-red-500/10 px-3 py-1 text-xs">
+                        <span className="block h-2 w-2 animate-pulse rounded-full bg-red-500" />
                         <h3>Building</h3>
                     </div>
                 ) : (
-                    <div className="inline-flex items-center justify-center gap-2 rounded-full bg-green-400/20 px-3 py-1 text-xs">
-                        <h3>{details.stat}</h3>
+                    <div className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500/10 px-3 py-1 text-xs">
+                        <span className="block h-2 w-2 animate-pulse rounded-full bg-green-500" />
+                        <h3>Completed</h3>
                     </div>
                 )}
 

@@ -10,7 +10,7 @@ export type IFrontMatter = {
     featured?: boolean;
     github?: string;
     preview?: string;
-    stat?: boolean | string;
+    status?: boolean | string;
     techStack?: string[];
 };
 

@@ -29,7 +29,7 @@ const HeroSection = () => {
 
             <h2 className="text-muted-foreground text-base">{USER.description}</h2>
 
-            <div className="flex gap-2 pt-4">
+            <div className="flex gap-2">
                 <Link
                     href={"/resume.pdf"}
                     target="_blank"
