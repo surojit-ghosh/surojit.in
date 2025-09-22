@@ -2,12 +2,12 @@ import Container from "@/components/container";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Prose } from "@/components/prose";
 import { getDetailsBySlug } from "@/lib/mdx";
-import Image from "next/image";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Share, Undo2 } from "lucide-react";
 import Divider from "@/components/divider";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Thumbnail } from "./thumbnail";
 
 const SingleProjectPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const { slug } = await params;
@@ -35,14 +35,7 @@ const SingleProjectPage = async ({ params }: { params: Promise<{ slug: string }>
             <Divider />
             <Container className="space-y-4">
                 <AspectRatio ratio={16 / 9} className="bg-muted rounded-sm">
-                    {frontmatter.image && (
-                        <Image
-                            src={frontmatter.image as string}
-                            alt={frontmatter.title}
-                            fill
-                            className="rounded-sm object-cover"
-                        />
-                    )}
+                    {frontmatter.image && <Thumbnail image={frontmatter.image as string} />}
                 </AspectRatio>
             </Container>
             <Container className="py-0">
