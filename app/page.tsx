@@ -1,6 +1,6 @@
-import Divider from "@/components/divider";
-import HeroSection from "./sections/hero";
-import Projects from "./sections/projects";
+import Divider from "@/components/ui/divider";
+import HeroSection from "@/app/sections/hero";
+import Projects from "@/app/sections/projects";
 
 export default function Home() {
     return (

@@ -1,6 +1,5 @@
 import React from "react";
-import Container from "./container";
-// import Divider from "./divider";
+import Container from "@/components/ui/container";
 import Link from "next/link";
 
 const Footer = () => {
@@ -27,7 +26,6 @@ const Footer = () => {
                 </Link>
                 .
             </Container>
-            {/* <Divider className="mb-2" /> */}
         </footer>
     );
 };

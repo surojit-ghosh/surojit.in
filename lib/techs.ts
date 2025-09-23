@@ -1,4 +1,4 @@
-import { Icons } from "../components/icons";
+import { Icons } from "@/components/icons";
 
 export const techStack = [
     { name: "React", key: "react", icon: Icons.react },

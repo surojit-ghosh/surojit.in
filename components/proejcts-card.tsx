@@ -3,16 +3,16 @@
 import { IFrontMatter } from "@/lib/mdx";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
-import { Icons } from "./icons";
+import { Icons } from "@/components/icons";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { techStack } from "../lib/techs";
-import { SimpleTooltip } from "./ui/tooltip";
-import { buttonVariants } from "./ui/button";
+import { techStack } from "@/lib/techs";
+import { SimpleTooltip } from "@/components/ui/tooltip";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }) => {
     const { theme } = useTheme();

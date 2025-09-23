@@ -1,4 +1,4 @@
-import Container from "@/components/container";
+import Container from "@/components/ui/container";
 import ProjectsCard from "@/components/proejcts-card";
 import { getProjects, IFrontMatter } from "@/lib/mdx";
 import React from "react";

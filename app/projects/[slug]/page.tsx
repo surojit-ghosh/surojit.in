@@ -1,10 +1,10 @@
-import Container from "@/components/container";
+import Container from "@/components/ui/container";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Prose } from "@/components/prose";
 import { getDetailsBySlug } from "@/lib/mdx";
 import { buttonVariants } from "@/components/ui/button";
 import { ExternalLink, MoveLeft } from "lucide-react";
-import Divider from "@/components/divider";
+import Divider from "@/components/ui/divider";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Thumbnail } from "./thumbnail";

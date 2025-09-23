@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import Container from "./container";
+import Container from "@/components/ui/container";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { USER } from "@/lib/config";
 import { cn } from "@/lib/utils";
-import { Icons } from "./icons";
-import { ThemeToggle } from "./theme-toggle";
+import { Icons } from "@/components/icons";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
     DropdownMenu,
     DropdownMenuContent,

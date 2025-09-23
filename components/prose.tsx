@@ -9,15 +9,13 @@ export function Prose({ children, className }: ProseProps) {
     return (
         <div
             className={cn(
-                "prose prose-neutral dark:prose-invert max-w-none",
-                "prose-headings:text-foreground",
-                "prose-p:text-muted-foreground prose-li:text-muted-foreground",
-                "prose-a:text-primary hover:prose-a:text-primary/80",
-                "prose-strong:text-foreground",
-                "prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded",
-                "prose-pre:bg-muted prose-pre:text-muted-foreground prose-pre:border",
-                "prose-blockquote:text-muted-foreground prose-blockquote:border-l-primary",
-                "prose-th:text-foreground prose-td:text-muted-foreground",
+                "prose prose-sm text-foreground prose-zinc dark:prose-invert max-w-none font-mono",
+                "prose-headings:font-sans prose-headings:font-semibold prose-headings:text-balance",
+                "prose-h2:border-b prose-h2:border-edge prose-h2:pb-2 prose-h2:text-2xl",
+                "prose-lead:text-base",
+                "prose-a:font-medium prose-a:break-words prose-a:text-foreground prose-a:underline prose-a:underline-offset-4",
+                "prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none",
+                "prose-hr:border-edge",
                 className
             )}
         >

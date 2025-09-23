@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
+import { components, options } from "@/components/mdx";
 
 export type IFrontMatter = {
     title: string;
@@ -45,9 +46,8 @@ export const getDetailsBySlug = async (dir: string, slug: string) => {
 
     const { frontmatter, content } = await compileMDX<IFrontMatter>({
         source,
-        options: {
-            parseFrontmatter: true,
-        },
+        components,
+        options,
     });
 
     return { frontmatter, content };
