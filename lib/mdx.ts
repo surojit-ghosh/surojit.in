@@ -15,7 +15,7 @@ export type IFrontMatter = {
 };
 
 const getFiles = async (dir: string) => {
-    const files = await fs.readdir(path.join(process.cwd(), `content/${dir}`));
+    const files = await fs.readdir(path.join(process.cwd(), `lib/data/${dir}`));
     return files;
 };
 
@@ -40,7 +40,7 @@ export const getProjects = async ({ featured = false }: { featured?: boolean } =
 
 export const getDetailsBySlug = async (dir: string, slug: string) => {
     const source = await fs.readFile(
-        path.join(process.cwd(), `content/${dir}/${slug}.mdx`),
+        path.join(process.cwd(), `lib/data/${dir}/${slug}.mdx`),
         "utf-8"
     );
 
