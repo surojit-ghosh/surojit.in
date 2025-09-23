@@ -1,4 +1,4 @@
-import Divider from "@/components/ui/divider";
+import Divider from "@/components/layout/divider";
 import HeroSection from "@/app/sections/hero";
 import Projects from "@/app/sections/projects";
 

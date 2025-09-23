@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Container from "@/components/ui/container";
+import Container from "@/components/layout/container";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { USER } from "@/lib/config";

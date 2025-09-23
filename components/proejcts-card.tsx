@@ -16,7 +16,7 @@ import { Badge } from "@/components/ui/badge";
 
 const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }) => {
     const { theme } = useTheme();
-    const [image, setImage] = useState<string | null>(details.image as string);
+    const [image, setImage] = useState<string | null>(null);
 
     useEffect(() => {
         if (details.image) {

@@ -1,4 +1,4 @@
-import Container from "@/components/ui/container";
+import Container from "@/components/layout/container";
 import { buttonVariants } from "@/components/ui/button";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { ISocialLink, SOCIAL_LINKS, USER } from "@/lib/config";

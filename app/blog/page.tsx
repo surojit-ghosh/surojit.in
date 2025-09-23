@@ -1,4 +1,4 @@
-import Container from "@/components/ui/container";
+import Container from "@/components/layout/container";
 import React from "react";
 
 const BlogPage = () => {
