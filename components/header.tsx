@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import useIsScrolled from "@/lib/hooks/use-is-scrolled";
+import { usePathname } from "next/navigation";
 
 type Link = {
     name: string;
@@ -23,14 +24,14 @@ type Link = {
 };
 
 const links: Link[] = [
-    { name: "About", href: "/about" },
     { name: "Projects", href: "/projects" },
-    { name: "Contact", href: "/contact" },
+    { name: "Blog", href: "/blog" },
 ];
 
 const Header = () => {
     const isScrolled = useIsScrolled(10);
-
+    const pathname = usePathname();
+    console.log(pathname.split("/")[1]);
     return (
         <header
             className={cn(
@@ -50,7 +51,11 @@ const Header = () => {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="text-sm transition-colors"
+                                className={cn(
+                                    "text-muted-foreground hover:text-foreground text-sm transition-colors hover:bg-transparent dark:hover:bg-transparent",
+                                    pathname.split("/")[1] === link.href.split("/")[1] &&
+                                        "text-foreground"
+                                )}
                             >
                                 {link.name}
                             </Link>
@@ -87,7 +92,14 @@ const Header = () => {
                                 <DropdownMenuContent side="bottom" align="end" sideOffset={8}>
                                     {links.map((link) => (
                                         <DropdownMenuItem key={link.href} asChild>
-                                            <Link href={link.href} className="w-full">
+                                            <Link
+                                                href={link.href}
+                                                className={cn(
+                                                    "text-muted-foreground hover:text-foreground text-sm transition-colors hover:bg-transparent dark:hover:bg-transparent",
+                                                    pathname.split("/")[1] ===
+                                                        link.href.split("/")[1] && "text-foreground"
+                                                )}
+                                            >
                                                 {link.name}
                                             </Link>
                                         </DropdownMenuItem>

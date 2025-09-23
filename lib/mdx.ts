@@ -5,7 +5,6 @@ import { compileMDX } from "next-mdx-remote/rsc";
 export type IFrontMatter = {
     title: string;
     description: string;
-    date: string;
     image?: string;
     featured?: boolean;
     github?: string;

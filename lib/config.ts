@@ -7,7 +7,7 @@ export const USER = {
     subheading: "Full-Stack Developer",
     description:
         "Software engineer crafting modern, responsive, and intuitive digital experiences—shipping fast with purpose and clarity.",
-    avatar: "/surojit.webp",
+    avatar: "/surojit.png",
     mail: "contact@surojit.in",
 };
 

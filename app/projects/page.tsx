@@ -1,5 +1,4 @@
 import Container from "@/components/container";
-import Divider from "@/components/divider";
 import ProjectsCard from "@/components/proejcts-card";
 import { getProjects, IFrontMatter } from "@/lib/mdx";
 import React from "react";
@@ -8,7 +7,6 @@ const ProjectsPage = async () => {
     const allProjects = await getProjects();
     return (
         <>
-            <Divider />
             <Container className="space-y-4 text-center">
                 <h1 className="font-sans text-3xl font-semibold">
                     All Projects
@@ -29,7 +27,6 @@ const ProjectsPage = async () => {
                     )}
                 </div>
             </Container>
-            <Divider />
         </>
     );
 };

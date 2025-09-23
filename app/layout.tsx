@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import { Provider } from "@/components/providers";
 import Footer from "@/components/footer";
+import Divider from "@/components/divider";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -31,7 +32,9 @@ export default function RootLayout({
                 <Provider>
                     <main className="relative">
                         <Header />
+                        <Divider />
                         {children}
+                        <Divider />
                         <Footer />
                     </main>
                 </Provider>
