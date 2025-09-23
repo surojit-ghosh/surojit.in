@@ -31,7 +31,7 @@ const links: Link[] = [
 const Header = () => {
     const isScrolled = useIsScrolled(10);
     const pathname = usePathname();
-    console.log(pathname.split("/")[1]);
+
     return (
         <header
             className={cn(

@@ -23,3 +23,19 @@ export function Prose({ children, className }: ProseProps) {
         </div>
     );
 }
+
+export function Code({ className, ...props }: React.ComponentProps<"code">) {
+    const isCodeBlock = "data-language" in props;
+
+    return (
+        <code
+            data-slot={isCodeBlock ? "code-block" : "code-inline"}
+            className={cn(
+                !isCodeBlock &&
+                    "not-prose bg-muted/50 rounded-md border px-[0.3rem] py-[0.2rem] font-mono text-sm",
+                className
+            )}
+            {...props}
+        />
+    );
+}

@@ -1,6 +1,6 @@
 import Container from "@/components/layout/container";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Prose } from "@/components/prose";
+import { Prose } from "@/components/ui/typography";
 import { getDetailsBySlug } from "@/lib/mdx";
 import { buttonVariants } from "@/components/ui/button";
 import { ExternalLink, MoveLeft } from "lucide-react";
