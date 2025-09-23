@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { components, options } from "@/components/mdx";
+import { options, components } from "@/components/blog/mdx";
 
 export type IFrontMatter = {
     title: string;
