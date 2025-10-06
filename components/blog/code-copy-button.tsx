@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 
 import { Icons } from "@/components/icons";
-import { SimpleTooltip } from "../ui/tooltip";
-import { Button } from "../ui/button";
+import { SimpleTooltip } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 interface CodeCopyButtonProps {

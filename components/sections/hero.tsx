@@ -12,7 +12,7 @@ const HeroSection = () => {
         <Container className="space-y-4">
             <div className="flex items-start gap-4">
                 <Images
-                    className="rounded-xl"
+                    className="rounded-lg"
                     src={USER.avatar}
                     alt={USER.name}
                     width={64}

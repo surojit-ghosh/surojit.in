@@ -7,7 +7,7 @@ import { ExternalLink, MoveLeft } from "lucide-react";
 import Divider from "@/components/layout/divider";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Thumbnail } from "../../../components/thumbnail";
+import { Thumbnail } from "@/components/thumbnail";
 import { Icons } from "@/components/icons";
 import { techStack } from "@/lib/techs";
 import { Badge } from "@/components/ui/badge";
