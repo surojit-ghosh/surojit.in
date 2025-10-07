@@ -27,3 +27,5 @@ export const SOCIAL_LINKS: ISocialLink[] = [
     { platform: "Twitter", url: "https://x.com/surojitghosh_", icon: Icons.x },
     { platform: "Mail", url: "mailto:contact@surojit.in", icon: Mail },
 ];
+
+export const MAX_PROJECTS_IN_HOMEPAGE = 4;
