@@ -23,10 +23,10 @@ export const experiences: IExperience[] = [
         role: [
             {
                 title: "Full-Stack Developer",
-                description: `- Built 15+ real-world projects, including full-stack web apps and automation tools (e.g., Discord bots).
-- Followed complete SDLC processes — from requirement analysis to deployment and maintenance.
-- Gained hands-on experience in both frontend and backend development.
-- Delivered production-ready, scalable, and maintainable solutions.`,
+                description: `- Developed 15+ real-world projects, including full-stack web apps and automation tools (like Discord bots).
+- Practiced the entire SDLC — from planning and development to testing, deployment, and ongoing support.
+- Built scalable, production-ready applications with modern web technologies.
+- Focused on clean architecture, performance, and maintainability in every project.`,
                 duration: ["2022"],
                 tech: [
                     "nextjs",
