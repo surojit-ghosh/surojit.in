@@ -5,6 +5,7 @@ import Header from "@/components/layout/header";
 import { Provider } from "@/components/layout/providers";
 import Footer from "@/components/layout/footer";
 import Divider from "@/components/layout/divider";
+import Script from "next/script";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -28,6 +29,21 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <Script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=G-MQ1B4WZBPF"
+                ></Script>
+                <Script id="google-analytics">
+                    {`
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                    
+                      gtag('config', 'G-MQ1B4WZBPF');
+                    `}
+                </Script>
+            </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 <Provider>
                     <main className="relative">
