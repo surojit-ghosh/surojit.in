@@ -6,19 +6,19 @@ import Container from "./layout/container";
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
 import { Calendar, ChevronsUpDown } from "lucide-react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { Button } from "./ui/button";
 import { Icons } from "./icons";
 import { Prose } from "@/components/ui/typography";
 import ReactMarkdown from "react-markdown";
 import { Badge } from "./ui/badge";
 import { techStack } from "@/lib/techs";
+import { motion, AnimatePresence } from "motion/react";
 
 const ExperienceCard = ({ experience }: { experience: IExperience }) => {
     const [isOpen, setIsOpen] = useState<boolean>(experience.active);
 
     return (
-        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+        <div>
             <Container className="flex p-0">
                 <div className="flex items-center justify-center border-r p-4">
                     <div className="size-8 md:size-14">
@@ -55,80 +55,95 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
                 </div>
 
                 <div className="flex items-center justify-center border-l p-4">
-                    <CollapsibleTrigger asChild>
-                        <Button variant="ghost" size="icon" className="size-8">
-                            <ChevronsUpDown />
-                            <span className="sr-only">Toggle</span>
-                        </Button>
-                    </CollapsibleTrigger>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="size-8"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <ChevronsUpDown />
+                        <span className="sr-only">Toggle</span>
+                    </Button>
                 </div>
             </Container>
 
-            <CollapsibleContent>
-                <Container>
-                    <div className="before:bg-border relative space-y-4 before:absolute before:top-0 before:left-3 before:h-full before:w-px">
-                        {experience.role.map((role, index) => {
-                            const isLast = index === experience.role.length - 1;
+            <AnimatePresence initial={false}>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        style={{ overflow: "hidden" }}
+                    >
+                        <Container>
+                            <div className="before:bg-border relative space-y-4 before:absolute before:top-0 before:left-3 before:h-full before:w-px">
+                                {experience.role.map((role, index) => {
+                                    const isLast = index === experience.role.length - 1;
 
-                            return (
-                                <div
-                                    key={index}
-                                    className={`relative ${isLast ? "before:bg-background before:absolute before:top-6 before:left-3 before:h-full before:w-px" : ""}`}
-                                >
-                                    <div className="flex items-start gap-4">
-                                        <div className="bg-muted text-muted-foreground border-border flex size-6 shrink-0 items-center justify-center rounded-sm border">
-                                            <role.icon className="size-4" />
-                                        </div>
+                                    return (
+                                        <div
+                                            key={index}
+                                            className={`relative ${isLast ? "before:bg-background before:absolute before:top-6 before:left-3 before:h-full before:w-px" : ""}`}
+                                        >
+                                            <div className="flex items-start gap-4">
+                                                <div className="bg-muted text-muted-foreground border-border flex size-6 shrink-0 items-center justify-center rounded-sm border">
+                                                    <role.icon className="size-4" />
+                                                </div>
 
-                                        <div className="min-w-0 flex-1">
-                                            <h4 className="text-foreground flex items-center gap-4 font-sans text-base font-medium md:text-xl">
-                                                {role.title}
-                                            </h4>
-                                            <div className="text-muted-foreground flex items-center gap-2 text-sm">
-                                                <Calendar className="size-4" />
-                                                {role.duration.length === 1 ? (
-                                                    <span className="flex items-center gap-1 font-sans">
-                                                        {role.duration[0]} -{" "}
-                                                        <Icons.infinity className="size-4" />
-                                                    </span>
-                                                ) : (
-                                                    role.duration.join(" - ")
-                                                )}
+                                                <div className="min-w-0 flex-1">
+                                                    <h4 className="text-foreground flex items-center gap-4 font-sans text-base font-medium md:text-xl">
+                                                        {role.title}
+                                                    </h4>
+                                                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                                                        <Calendar className="size-4" />
+                                                        {role.duration.length === 1 ? (
+                                                            <span className="flex items-center gap-1 font-sans">
+                                                                {role.duration[0]} -{" "}
+                                                                <Icons.infinity className="size-4" />
+                                                            </span>
+                                                        ) : (
+                                                            role.duration.join(" - ")
+                                                        )}
+                                                    </div>
+
+                                                    <Prose className="mt-4">
+                                                        <ReactMarkdown>
+                                                            {role.description}
+                                                        </ReactMarkdown>
+                                                    </Prose>
+
+                                                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                                                        {role.tech?.map((tech) => {
+                                                            const Tech = techStack.find(
+                                                                (t) => t.key === tech
+                                                            );
+
+                                                            return (
+                                                                <Badge
+                                                                    variant={"secondary"}
+                                                                    className="gap-1 py-1"
+                                                                    key={tech}
+                                                                >
+                                                                    {Tech?.icon && (
+                                                                        <Tech.icon className="!size-4" />
+                                                                    )}
+                                                                    {Tech?.name}
+                                                                </Badge>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                            <Prose className="mt-4">
-                                                <ReactMarkdown>{role.description}</ReactMarkdown>
-                                            </Prose>
-
-                                            <div className="mt-4 flex flex-wrap items-center gap-2">
-                                                {role.tech?.map((tech) => {
-                                                    const Tech = techStack.find(
-                                                        (t) => t.key === tech
-                                                    );
-
-                                                    return (
-                                                        <Badge
-                                                            variant={"secondary"}
-                                                            className="gap-1 py-1"
-                                                            key={tech}
-                                                        >
-                                                            {Tech?.icon && (
-                                                                <Tech.icon className="!size-4" />
-                                                            )}
-                                                            {Tech?.name}
-                                                        </Badge>
-                                                    );
-                                                })}
-                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </Container>
-            </CollapsibleContent>
-        </Collapsible>
+                                    );
+                                })}
+                            </div>
+                        </Container>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
     );
 };
 
