@@ -1,7 +1,6 @@
 "use client";
 
 import { LoaderIcon } from "lucide-react";
-import { use } from "react";
 
 import type { Activity } from "@/components/kibo-ui/contribution-graph";
 import {
@@ -14,8 +13,8 @@ import {
 } from "@/components/kibo-ui/contribution-graph";
 import { GITHUB_USERNAME } from "@/config/site";
 
-export function GitHubContributionGraph({ contributions }: { contributions: Promise<Activity[]> }) {
-    const data = use(contributions);
+export function GitHubContributionGraph({ contributions }: { contributions: Activity[] }) {
+    const data = contributions;
 
     return (
         <ContributionGraph data={data} blockSize={10.92} blockMargin={3} blockRadius={0}>

@@ -1,19 +1,27 @@
-import { Suspense } from "react";
+"use client";
 
-import { getGitHubContributions } from "../../data/github-contributions";
+import { useQuery } from "@tanstack/react-query";
+
+import { getGitHubContributions } from "./actions/github-contributions";
 import { GitHubContributionFallback, GitHubContributionGraph } from "./graph";
 import Container from "@/components/layout/container";
 
 export function GitHubContributions() {
-    const contributions = getGitHubContributions();
+    const { data: contributions = [], isLoading } = useQuery({
+        queryKey: ["github-contributions"],
+        queryFn: async () => await getGitHubContributions(),
+        staleTime: 24 * 60 * 60 * 1000,
+    });
 
     return (
         <Container>
             <h2 className="sr-only">GitHub Contributions</h2>
 
-            <Suspense fallback={<GitHubContributionFallback />}>
+            {isLoading ? (
+                <GitHubContributionFallback />
+            ) : (
                 <GitHubContributionGraph contributions={contributions} />
-            </Suspense>
+            )}
         </Container>
     );
 }
