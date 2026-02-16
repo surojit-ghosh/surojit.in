@@ -6,6 +6,7 @@ import { Provider } from "@/components/layout/providers";
 import Footer from "@/components/layout/footer";
 import Divider from "@/components/layout/divider";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
                         <Footer />
                     </main>
                 </Provider>
+                <Analytics />
             </body>
         </html>
     );
