@@ -12,6 +12,8 @@ import {
     ContributionGraphTotalCount,
 } from "@/components/kibo-ui/contribution-graph";
 import { GITHUB_USERNAME } from "@/config/site";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { format } from "date-fns";
 
 export function GitHubContributionGraph({ contributions }: { contributions: Activity[] }) {
     const data = contributions;
@@ -20,11 +22,24 @@ export function GitHubContributionGraph({ contributions }: { contributions: Acti
         <ContributionGraph data={data} blockSize={10.92} blockMargin={3} blockRadius={0}>
             <ContributionGraphCalendar className="no-scrollbar">
                 {({ activity, dayIndex, weekIndex }) => (
-                    <ContributionGraphBlock
-                        activity={activity}
-                        dayIndex={dayIndex}
-                        weekIndex={weekIndex}
-                    />
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <g>
+                                <ContributionGraphBlock
+                                    activity={activity}
+                                    dayIndex={dayIndex}
+                                    weekIndex={weekIndex}
+                                />
+                            </g>
+                        </TooltipTrigger>
+
+                        <TooltipContent className="font-sans">
+                            <p>
+                                {activity.count} contribution{activity.count > 1 ? "s" : null} on{" "}
+                                {format(new Date(activity.date), "dd.MM.yyyy")}
+                            </p>
+                        </TooltipContent>
+                    </Tooltip>
                 )}
             </ContributionGraphCalendar>
             <ContributionGraphFooter>

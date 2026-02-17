@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { getGitHubContributions } from "./actions/github-contributions";
+import { getGitHubContributions } from "../../actions/github-contributions";
 import { GitHubContributionFallback, GitHubContributionGraph } from "./graph";
 import Container from "@/components/layout/container";
 
