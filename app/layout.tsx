@@ -21,6 +21,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     title: "Surojit Ghosh",
     description: "Portfolio of Surojit Ghosh",
+    metadataBase: new URL("https://surojit.in"),
+    openGraph: {
+        images: [
+            {
+                url: "/api/og",
+                width: 1200,
+                height: 630,
+                alt: "Surojit Ghosh",
+            },
+        ],
+    },
 };
 
 export default function RootLayout({
