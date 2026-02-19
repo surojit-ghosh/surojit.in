@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export const runtime = "edge";
 
-const interMedium = fetch(new URL("../../../assets/fonts/Inter_Medium.ttf", import.meta.url)).then(
+const interMedium = fetch(new URL("../../assets/fonts/Inter_Medium.ttf", import.meta.url)).then(
     (res) => res.arrayBuffer()
 );
 
