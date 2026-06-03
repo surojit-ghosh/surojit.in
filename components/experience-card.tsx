@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Container from "./layout/container";
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
-import { Calendar, ChevronsUpDown } from "lucide-react";
+import { Calendar, ChevronsUpDown, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
 import { Icons } from "./icons";
 import { Prose } from "@/components/ui/typography";
@@ -13,6 +13,28 @@ import ReactMarkdown from "react-markdown";
 import { Badge } from "./ui/badge";
 import { techStack } from "@/lib/techs";
 import { motion, AnimatePresence } from "motion/react";
+
+const ExperienceMeta = ({ duration, location }: { duration: string[]; location: string }) => (
+    <div className="text-muted-foreground mt-2 flex flex-col gap-1 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4">
+        <span className="flex items-center gap-2">
+            <Calendar className="size-3.5 shrink-0" />
+            {duration.length === 1 ? (
+                <span className="flex items-center gap-1">
+                    {duration[0]} - <Icons.infinity className="size-3.5" />
+                </span>
+            ) : (
+                <span>{duration.join(" - ")}</span>
+            )}
+        </span>
+
+        <span className="bg-muted-foreground/40 hidden size-1 rounded-full sm:block" />
+
+        <span className="flex items-center gap-2">
+            <MapPin className="size-3.5 shrink-0" />
+            <span>{location}</span>
+        </span>
+    </div>
+);
 
 const ExperienceCard = ({ experience }: { experience: IExperience }) => {
     const [isOpen, setIsOpen] = useState<boolean>(experience.active);
@@ -27,7 +49,7 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
                                 src={experience.logo}
                                 alt={experience.company}
                                 fill
-                                className="rounded-sm object-cover"
+                                className="bg-background rounded-sm object-contain"
                             />
                         </AspectRatio>
                     </div>
@@ -37,21 +59,15 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
                     <h2 className="flex items-center gap-4 font-sans text-lg font-semibold md:text-2xl">
                         {experience.company}
 
-                        <span className="relative flex items-center justify-center">
-                            <span className="absolute inline-flex size-3 animate-ping rounded-full bg-green-500 opacity-50"></span>
-                            <span className="relative inline-flex size-2 rounded-full bg-green-500"></span>
-                        </span>
-                    </h2>
-                    <h3 className="text-muted-foreground mt-2 flex items-center gap-2 text-sm">
-                        <Calendar className="size-4" />
-                        {experience.duration.length === 1 ? (
-                            <span className="flex items-center gap-1">
-                                {experience.duration[0]} - <Icons.infinity className="size-4" />
+                        {experience.active && (
+                            <span className="relative flex items-center justify-center">
+                                <span className="absolute inline-flex size-3 animate-ping rounded-full bg-green-500 opacity-50"></span>
+                                <span className="relative inline-flex size-2 rounded-full bg-green-500"></span>
                             </span>
-                        ) : (
-                            experience.duration.join(" - ")
                         )}
-                    </h3>
+                    </h2>
+
+                    <ExperienceMeta duration={experience.duration} location={experience.location} />
                 </div>
 
                 <div className="flex items-center justify-center border-l p-4">
@@ -59,6 +75,7 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
                         variant="ghost"
                         size="icon"
                         className="size-8"
+                        aria-expanded={isOpen}
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         <ChevronsUpDown />
@@ -95,23 +112,18 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
                                                     <h4 className="text-foreground flex items-center gap-4 font-sans text-base font-medium md:text-xl">
                                                         {role.title}
                                                     </h4>
-                                                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
-                                                        <Calendar className="size-4" />
-                                                        {role.duration.length === 1 ? (
-                                                            <span className="flex items-center gap-1 font-sans">
-                                                                {role.duration[0]} -{" "}
-                                                                <Icons.infinity className="size-4" />
-                                                            </span>
-                                                        ) : (
-                                                            role.duration.join(" - ")
-                                                        )}
-                                                    </div>
+                                                    <ExperienceMeta
+                                                        duration={role.duration}
+                                                        location={role.location}
+                                                    />
 
-                                                    <Prose className="mt-4">
-                                                        <ReactMarkdown>
-                                                            {role.description}
-                                                        </ReactMarkdown>
-                                                    </Prose>
+                                                    {role.description && (
+                                                        <Prose className="mt-4">
+                                                            <ReactMarkdown>
+                                                                {role.description}
+                                                            </ReactMarkdown>
+                                                        </Prose>
+                                                    )}
 
                                                     <div className="mt-4 flex flex-wrap items-center gap-2">
                                                         {role.tech?.map((tech) => {
