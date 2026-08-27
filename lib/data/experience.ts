@@ -17,7 +17,7 @@ export type IExperience = {
 };
 
 export const experiences: IExperience[] = [
-        {
+    {
         company: "Capgemini",
         active: true,
         logo: "/assets/logos/capgemini.png",
@@ -27,7 +27,7 @@ export const experiences: IExperience[] = [
             {
                 title: "Analyst A4 · Software Engineer (Trainee)",
                 description: "",
-                duration: ["May 2026"],
+                duration: ["May 2026", "Jul 2026"],
                 location: "Remote",
                 tech: [
                     "html",
