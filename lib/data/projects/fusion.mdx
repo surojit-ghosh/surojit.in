@@ -1,30 +1,23 @@
 ---
-title: "Fusion Ticket Tool Dashboard"
-description: "A dashboard for managing and analyzing support tickets with real-time analytics."
+title: "Fusion Ticket Bot Dashboard"
+description: "Freelance Next.js ops dashboard for a Discord ticket bot — multi-guild config, RBAC, exchange rates, live embed editor, and audit logs."
 image: "/assets/projects/fusion.png"
 featured: true
 preview: "https://fusion.surojit.in"
 status: true
-techStack: ["nextjs", "react", "ts", "tailwind", "shadcnui", "prisma", "pg"]
+techStack: ["nextjs", "react", "ts", "tailwind", "shadcnui", "prisma", "pg", "betterauth", "tanstackQuery", "zod", "docker"]
 ---
 
-## 💡 Inspiration
+Freelance web app for a Discord ticket / crypto-fiat exchange bot. Staff sign in with Discord OAuth, pick a guild, and configure panels, rates, users, and logging without editing bot config by hand.
 
-I built Fusion to address the lack of modern, user-friendly tools for support teams in fast-growing startups. My goal was to create a dashboard that is both powerful and easy to use.
+## Highlights
 
-## 👨‍💻 My Role
+- better-auth Discord OAuth; per-guild RBAC (Admin / Moderator / Spectator) on Server Actions and UI gates
+- Six ticket panel types (exchange, MM, support, donate, apply, cash) with behavior, embeds, Discord-role permissions, automation
+- Live Discord embed editor with Skyra preview + MDX; range-based FX rates and fees
+- Prisma Client extension that writes audit logs on guild/config/backup writes; nested JSON diff viewer
+- TanStack Query hydration from App Router; Dockerized Node 22 deploy
 
-- Designed the UI/UX from scratch
-- Implemented the full-stack architecture (Next.js, Prisma, PostgreSQL)
-- Set up CI/CD and cloud deployment
+## Honest scope
 
-## 🧠 What I Learned
-
-- Advanced Next.js App Router patterns
-- Real-time data handling with Prisma and PostgreSQL
-- Building accessible, themeable UIs with shadcn/ui and Tailwind CSS
-
-## 🛠️ Challenges & Solutions
-
-- **Hydration mismatches with theme-based images:** Solved by using CSS filters for dark mode compatibility.
-- **Real-time analytics:** Used efficient database queries and caching for fast dashboard updates.
+Dashboard only — ticket execution lives in the bot repo. No tests/CI in-repo; some landing metrics are placeholders. Schema shares wallet/tax models the web app does not use.

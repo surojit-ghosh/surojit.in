@@ -1,0 +1,27 @@
+---
+title: "Google Maps Review Chatbot"
+description: "College minor project — Turborepo app that scrapes Google Maps reviews, embeds them with Ollama, and stores them for per-business chat."
+featured: false
+github: "https://github.com/surojit-ghosh/google-maps-review-chatbot"
+status: false
+techStack: ["nextjs", "react", "ts", "expressjs", "prisma", "pg", "betterauth", "zod", "tanstackQuery"]
+---
+
+College **minor project**: paste a `maps.app.goo.gl` URL → Python Selenium scrape → Ollama embeddings → Postgres/Prisma → authenticated Next.js dashboard chat.
+
+## Stack
+
+- `apps/web` — Next.js 15 dashboard + landing
+- `apps/api` — Express 5 + Better Auth + Prisma
+- `apps/ai` — FastAPI + Selenium / undetected Chrome + Ollama (`all-minilm`)
+- Shared Zod schemas in `packages/zod`
+
+## Highlights
+
+- Async ingest: place identity returns immediately; reviews scrape/embed/upsert in background workers
+- Better Auth email/password; chat threads scoped to the signed-in user
+- Upsert reviews by Google review id with embedding float arrays
+
+## Honest scope
+
+Assistant replies are still a **placeholder** — embeddings are stored but RAG retrieval / LLM answers are not wired. Private repo; local demo only. Strong as scrape + pipeline + monorepo evidence, not as a finished RAG product.

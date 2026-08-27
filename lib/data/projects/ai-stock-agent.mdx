@@ -1,0 +1,21 @@
+---
+title: "AI Stock Agent"
+description: "College major project — Next.js chat agent that uses Groq tool calling and Yahoo Finance for NSE/BSE research cards."
+featured: true
+github: "https://github.com/surojit-ghosh/ai-stock-agent"
+status: true
+techStack: ["nextjs", "react", "ts", "tailwind", "shadcnui", "zod"]
+---
+
+College **major project**: a streaming chat UI that routes Indian-market questions into six Zod-validated server tools (quotes, analysis, news, indexes, compare, investment thesis) backed by Groq (Qwen 3 32B) and Yahoo Finance.
+
+## Highlights
+
+- LLM **tool calling** with a 5-step budget per request (`streamText` + Vercel AI SDK)
+- Custom SMA-20/50 and RSI-14 entry plan rendered as analysis cards (SVG RSI gauge)
+- Structured generation for news sentiment and theses, with JSON-parse and heuristic fallbacks
+- Per-tool UI cards for price, analysis, insight, news, index, and compare — plus error states
+
+## Honest scope
+
+No database, auth, or public deploy in-repo. Chat lives in the browser session. Framed as an academic / demo agent, not a trading platform.

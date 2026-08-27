@@ -1,0 +1,21 @@
+---
+title: "Discord Invites Tracker"
+description: "Open-source Node.js library that attributes Discord joins by snapshotting invite-use counts and diffing on guildMemberAdd."
+featured: false
+github: "https://github.com/surojit-ghosh/discord-invites-tracker"
+preview: "https://www.npmjs.com/package/discord-invites-tracker"
+status: true
+techStack: ["nodejs", "js", "mongo"]
+---
+
+Small **npm** module (`discord-invites-tracker`) for Discord bot authors. Discord’s join payload does not include the invite code — this library snapshots per-inviter use counts and diffs them on join.
+
+## Highlights
+
+- EventEmitter wrapper around discord.js so bots get `member.inviter` without reimplementing invite cache logic
+- Optional MongoDB persistence (Mongoose) for invite credits that decrement on leave
+- Published versions 1.0.0–1.1.2 to npm; later merged a community SQLite/Keyv persistence PR
+
+## Honest scope
+
+Not a web app — reusable bot library (~one main module). No frontend or HTTP API. Best as a short OSS / Node bullet.

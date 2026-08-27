@@ -1,0 +1,28 @@
+---
+title: "India Fuel Prices"
+description: "Shipped TypeScript npm scraper for historical petrol/diesel prices across 300+ Indian cities, plus an in-progress Spring Boot + React transparency dashboard."
+featured: false
+github: "https://github.com/surojit-ghosh/fuel-price-india"
+status: false
+techStack: ["nodejs", "ts", "githubactions", "react", "vite", "java", "springboot", "pg", "docker"]
+---
+
+Two related efforts under one portfolio entry:
+
+1. **[`fuel-price-india`](https://github.com/surojit-ghosh/fuel-price-india)** — published npm package (CLI + programmatic API)
+2. **[`india-fuel-price-tracker`](https://github.com/surojit-ghosh/india-fuel-price-tracker)** — full-stack dashboard scaffold (design + Docker foundation; product UI still WIP)
+
+## fuel-price-india (shipped)
+
+- Dual-mode: `npx fuel-india` CLI and TypeScript `FuelScraper` API
+- Browser fingerprinting (Apify `header-generator`) + polite jitter to scrape historical city prices
+- Forward-fill daily series; CSV export per city/fuel; typed enums for 300+ cities / 36 states
+- GitHub Actions publish on version tags
+
+## india-fuel-price-tracker (in progress)
+
+- Planned public dashboard: state fuel prices overlaid with crude oil and USD/INR
+- Scaffolded: React 19 + Vite frontend, Spring Boot 4 / Java 21 API (`/api/health`), Postgres + Docker Compose
+- PRD, architecture, security docs, and 41 implementation tickets — map/charts/ETL **not** coded yet
+
+Honest framing: scraper is production-published; tracker is architecture + foundation until schema, APIs, and UI ship.

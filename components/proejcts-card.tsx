@@ -11,25 +11,15 @@ import { techStack } from "@/lib/techs";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useTheme } from "next-themes";
 import { Badge } from "@/components/ui/badge";
 
 const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }) => {
-    const { theme } = useTheme();
-    const [image, setImage] = useState<string | null>(null);
-
-    useEffect(() => {
-        if (details.image) {
-            setImage((details.image as string).replace(/\.png$/, `-${theme || "dark"}.png`));
-        }
-    }, [theme, details.image]);
-
     return (
         <div className="bg-card col-span-1 flex h-full flex-col space-y-4 rounded-sm p-4 shadow-sm">
             <AspectRatio ratio={16 / 9} className="bg-muted rounded-sm">
-                {image && (
+                {details.image && (
                     <Image
-                        src={image}
+                        src={details.image}
                         alt={details.title}
                         fill
                         className="rounded-sm object-cover"

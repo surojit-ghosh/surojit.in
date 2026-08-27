@@ -1,164 +1,23 @@
 ---
 title: "Portfolio Website"
-description: "A modern, responsive portfolio built with Next.js, TypeScript, and shadcn/ui to showcase my projects and skills."
+description: "Personal site (this one) — Next.js App Router, MDX project pages, experience/education data, and GitHub contribution activity."
 image: "/assets/projects/portfolio.png"
-featured: true
+featured: false
 github: "https://github.com/surojit-ghosh/surojit.in"
 preview: "https://surojit.in"
-status: false
+status: true
 techStack: ["nextjs", "react", "ts", "tailwind", "shadcnui", "mdx"]
 ---
 
-**Portfolio Website** is a modern, full-stack personal portfolio built to showcase my projects, skills, and experience. Built with performance, accessibility, and user experience in mind, it features a clean design, dark/light theme support, and dynamic content management through MDX.
+Personal portfolio at [surojit.in](https://surojit.in). File-based MDX projects, typed experience/education data, theme toggle, and a server-fetched GitHub contributions graph.
 
----
+## Highlights
 
-## 🎯 Overview
+- MDX frontmatter pipeline (`getProjects` / `getDetailsBySlug`) for listing and detail pages
+- Edge Open Graph image route; metadata for social sharing
+- GitHub contributions via external API with daily revalidation
+- shadcn/ui + Tailwind layout: hero, featured projects, experience, education
 
-This portfolio serves as a comprehensive showcase of my development skills and projects. It's built with modern web technologies and follows best practices for performance, SEO, and accessibility. The site features dynamic project cards, detailed project pages, and a responsive design that works seamlessly across all devices.
+## Role
 
----
-
-## ✨ Key Features
-
-### 🏠 **Homepage & Navigation**
-
-- Hero section with introduction and social links
-- Featured projects showcase with interactive cards
-- Responsive navigation with mobile-friendly menu
-- Smooth theme switching (light/dark mode)
-
-### 📂 **Project Management**
-
-- Dynamic project cards with tech stack icons
-- MDX-powered project detail pages
-- Featured/non-featured project filtering
-- Live preview and GitHub repository links
-
-### 🎨 **Design & UX**
-
-- Modern, clean design with shadcn/ui components
-- Fully responsive layout for all screen sizes
-- Accessible components with proper ARIA labels
-- Consistent design system with Tailwind CSS
-
-### 🔧 **Technical Features**
-
-- Server-side rendering with Next.js App Router
-- Type-safe development with TypeScript
-- MDX for rich content authoring
-- Optimized images with Next.js Image component
-
----
-
-## 🛠 Technology Stack
-
-### **Frontend**
-
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **shadcn/ui** - Modern, accessible UI components
-- **Lucide Icons** - Beautiful, consistent iconography
-
-### **Content Management**
-
-- **MDX** - Markdown with JSX for rich content
-- **next-mdx-remote** - Server-side MDX compilation
-- **remark-gfm** - GitHub Flavored Markdown support
-- **rehype-pretty-code** - Syntax highlighting for code blocks
-
-### **Development & Deployment**
-
-- **ESLint & Prettier** - Code linting and formatting
-- **Vercel** - Deployment and hosting platform
-- **Git** - Version control
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-```js
-Node.js 18+ and npm/yarn/pnpm
-```
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/surojit-ghosh/surojit.in.git
-cd surojit.in
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-
-### Project Structure
-
-```bash
-.
-├── ...
-├── test                    # Test files (alternatively `spec` or `tests`)
-│   ├── benchmarks          # Load and stress tests
-│   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-│   └── unit                # Unit tests
-└── ...nd configs
-```
-
----
-
-## 💻 Development Features
-
-### **MDX Configuration**
-
-- Custom components for enhanced content
-- Syntax highlighting with theme support
-- External link handling with security attributes
-- GitHub Flavored Markdown support
-
-### **Theme System**
-
-- System preference detection
-- Persistent theme selection
-- Smooth transitions between themes
-- Theme-aware component styling
-
-### **Performance Optimizations**
-
-- Server-side rendering for fast initial loads
-- Optimized images with proper sizing
-- Minimal JavaScript bundle size
-- Efficient CSS with Tailwind's purging
-
----
-
-## 🎯 Portfolio Highlights
-
-This portfolio demonstrates proficiency in:
-
-- **Modern React patterns** with hooks and server components
-- **Type-safe development** with TypeScript
-- **Performance optimization** with Next.js best practices
-- **Responsive design** with Tailwind CSS
-- **Content management** with MDX and file-based CMS
-- **Developer experience** with proper tooling and linting
-
----
-
-## 🤝 Connect With Me
-
-Interested in collaborating or learning more about this project?
-
-- **Live Site**: [surojit.in](https://surojit.in)
-- **GitHub**: [View Source Code](https://github.com/surojit-ghosh/surojit.in)
-- **LinkedIn**: [Connect on LinkedIn](https://www.linkedin.com/in/ghoshsurojit/)
-- **Email**: [contact@surojit.in](mailto:contact@surojit.in)
-
----
-
-**Built with ❤️ using Next.js, TypeScript, and modern web technologies.**
+Personal project — design, content, and full stack owned solo.

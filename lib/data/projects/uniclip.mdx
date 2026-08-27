@@ -1,31 +1,23 @@
 ---
-title: "Uniclip"
-description: "A universal video downloader supporting multiple platforms."
+title: "UniClip"
+description: "Open-source Next.js + Go clipper — download YouTube with yt-dlp, trim with ffmpeg stream-copy, serve a temporary MP4."
 image: "/assets/projects/uniclip.png"
-featured: true
+featured: false
 github: "https://github.com/surojit-ghosh/uniclip"
 preview: "https://uniclip.surojit.in"
 status: false
-techStack: ["nextjs", "react", "ts", "tailwind", "shadcnui", "go"]
+techStack: ["nextjs", "react", "ts", "tailwind", "shadcnui", "go", "docker", "zod"]
 ---
 
-**UniClip** is a modern, cross-platform multimedia downloader that lets users easily download and trim videos from YouTube, Instagram, X (Twitter), Facebook, and more — all in one place. Designed with simplicity and speed in mind, UniClip aims to be the go-to tool for creators, researchers, and casual users looking to extract clips or save content.
+Public OSS learning project: paste a URL (+ optional timestamps) → Go Fiber API shells out to **yt-dlp** and **ffmpeg** → temporary download link. Built to help others read a small real Go HTTP service.
 
-> ⚠️ This project is currently **under active development**. Expect frequent updates and structural changes.
+## Highlights
 
----
+- Fiber API: platform routing, process orchestration, temp file cleanup via goroutines
+- ffmpeg `-c copy` trim (start-only / end-only / both / full copy)
+- Next.js 15 form with Zod + React Hook Form validation; Docker Compose split stack
+- Production cookie-path handling for yt-dlp bot checks
 
-## 🚀 Features (Planned)
+## Honest scope
 
-- 🎬 Timestamp-based trimming for YouTube & Twitter videos
-- 🌐 Tab-based UI for switching between platforms
-- 🧠 Smart format selection & auto-download
-- ☁️ Optional cloud hosting of clipped videos
-- 📱 Mobile-friendly, responsive UI
-
----
-
-## 🛠 Tech Stack
-
-- **Frontend**: Next.js
-- **Backend**: Go (Golang), yt-dlp, ffmpeg
+YouTube path is complete. Instagram / X return HTTP 501 stubs; Facebook is UI-only. No auth, DB, or signup — by design. README still marks active development.
