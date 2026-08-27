@@ -69,10 +69,14 @@ const ProjectsCard = ({ slug, details }: { slug: string; details: IFrontMatter }
 
                     return (
                         <span className="scale-90 transition-transform hover:scale-110" key={tech}>
-                            {Icon && (
+                            {Icon?.icon ? (
                                 <SimpleTooltip content={Icon.name}>
                                     <Icon.icon className="size-6" />
                                 </SimpleTooltip>
+                            ) : (
+                                <span className="text-muted-foreground text-xs">
+                                    {Icon?.name ?? tech}
+                                </span>
                             )}
                         </span>
                     );

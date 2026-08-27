@@ -1,6 +1,10 @@
 import { Icons } from "@/components/icons";
 
-export const techStack = [
+export const techStack: {
+    name: string;
+    key: string;
+    icon?: React.ElementType;
+}[] = [
     { name: "HTML", key: "html", icon: Icons.html },
     { name: "CSS", key: "css", icon: Icons.css },
     { name: "JavaScript", key: "js", icon: Icons.js },
@@ -30,4 +34,17 @@ export const techStack = [
     { name: "JUnit", key: "junit", icon: Icons.junit },
     { name: "Thymeleaf", key: "thymeleaf", icon: Icons.thymeleaf },
     { name: "Jenkins", key: "jenkins", icon: Icons.jenkins },
+    { name: "Vite", key: "vite", icon: Icons.vite },
+    { name: "Formik", key: "formik", icon: Icons.formik },
+    { name: "Jest", key: "jest", icon: Icons.jest },
+    { name: "GitHub Actions", key: "githubactions", icon: Icons.githubactions },
+    { name: "Payload CMS", key: "payload", icon: Icons.payload },
+    { name: "Node.js", key: "nodejs", icon: Icons.nodejs },
+    { name: "Zod", key: "zod", icon: Icons.zod },
+    { name: "Docker", key: "docker", icon: Icons.docker },
+    { name: "LangGraph", key: "langgraph", icon: Icons.langgraph },
+    { name: "Nginx", key: "nginx", icon: Icons.nginx },
+    { name: "React Testing Library", key: "reacttestinglibrary", icon: Icons.reacttestinglibrary },
+    { name: "better-auth", key: "betterauth", icon: Icons.betterauth },
+    { name: "Yup", key: "yup" },
 ];

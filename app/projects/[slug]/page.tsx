@@ -78,7 +78,7 @@ const SingleProjectPage = async ({ params }: { params: Promise<{ slug: string }>
                         return (
                             <Badge variant={"secondary"} className="gap-1 py-1" key={tech}>
                                 {Tech?.icon && <Tech.icon className="!size-4" />}
-                                {Tech?.name}
+                                {Tech?.name ?? tech}
                             </Badge>
                         );
                     })}

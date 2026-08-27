@@ -140,7 +140,7 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
                                                                     {Tech?.icon && (
                                                                         <Tech.icon className="!size-4" />
                                                                     )}
-                                                                    {Tech?.name}
+                                                                    {Tech?.name ?? tech}
                                                                 </Badge>
                                                             );
                                                         })}

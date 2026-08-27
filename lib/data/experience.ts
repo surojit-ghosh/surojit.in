@@ -18,39 +18,107 @@ export type IExperience = {
 
 export const experiences: IExperience[] = [
     {
-        company: "Capgemini",
+        company: "CyberPeak IT Solutions",
         active: true,
+        logo: "/assets/logos/cyberpeak.png",
+        duration: ["May 2026"],
+        location: "Kolkata · On-site",
+        role: [
+            {
+                title: "Junior Full Stack Developer (Internship)",
+                description: `In-house Project: PlanQuill
+
+- Designed and shipped the AI project-planning agent end to end.
+- Developed human-in-the-loop review before backlog apply.
+- Added automatic time logging from board status changes.
+- Enhanced core workspace features for boards and tasks.
+
+Client Project: Neo Entertainment
+
+- Developed bidirectional Google Calendar sync for suppliers.
+- Implemented OAuth connect, webhook watches, and sync recovery.
+- Mirrored booking create, update, and delete to Google Calendar.
+
+Client Project: [RSJ Steel](https://rsjsteel.in)
+
+- Designed the B2B steel catalog site end to end.
+- Developed product specs, grade tables, and WhatsApp RFQ.
+- Implemented SEO, sitemap, and Open Graph for go-live.`,
+                duration: ["May 2026"],
+                location: "Kolkata · On-site",
+                tech: [
+                    "nextjs",
+                    "react",
+                    "ts",
+                    "js",
+                    "nodejs",
+                    "expressjs",
+                    "nestjs",
+                    "prisma",
+                    "pg",
+                    "tailwind",
+                    "shadcnui",
+                    "redux",
+                    "reduxToolkit",
+                    "axios",
+                    "zod",
+                    "langgraph",
+                    "docker",
+                    "githubactions",
+                    "jest",
+                    "nginx",
+                ],
+                icon: Terminal,
+            },
+        ],
+    },
+    {
+        company: "Capgemini",
+        active: false,
         logo: "/assets/logos/capgemini.png",
         duration: ["Jan 2026"],
         location: "Kolkata · On-site",
         role: [
             {
                 title: "Analyst A4 · Software Engineer (Trainee)",
-                description: "",
+                description: `- Learned React, routing, forms, and client state management.
+- Built role-based dashboards with protected routes and validated forms.
+- Built multi-role food-delivery flows for customers, restaurants, and drivers.`,
                 duration: ["May 2026", "Jul 2026"],
                 location: "Remote",
                 tech: [
                     "html",
                     "css",
-                    "tailwind",
-                    "bootstrap",
                     "js",
+                    "nodejs",
                     "react",
                     "reactRouter",
+                    "vite",
                     "axios",
                     "zustand",
                     "redux",
                     "reduxToolkit",
-                    "tanstackQuery"
+                    "tanstackQuery",
+                    "formik",
+                    "yup",
+                    "tailwind",
+                    "bootstrap",
+                    "expressjs",
+                    "jest",
+                    "reacttestinglibrary",
                 ],
                 icon: Terminal,
             },
             {
                 title: "Analyst A4 · Software Engineer (Trainee)",
-                description: "",
+                description: `- Learned Java, Spring Boot, JPA/Hibernate, and PostgreSQL in the backend track.
+- Built REST services with layered controller/service/entity architecture.
+- Built relational models for customers, orders, products, and payments.    `,
                 duration: ["Jan 2026", "Apr 2026"],
                 location: "Kolkata · On-site",
                 tech: [
+                    "html",
+                    "css",
                     "java",
                     "springboot",
                     "pg",
@@ -65,33 +133,6 @@ export const experiences: IExperience[] = [
         ],
     },
     {
-        company: "CyberPeak IT Solutions",
-        active: true,
-        logo: "/assets/logos/cyberpeak.png",
-        duration: ["May 2026"],
-        location: "Kolkata · On-site",
-        role: [
-            {
-                title: "Junior Full Stack Developer (Internship)",
-                description: "",
-                duration: ["May 2026"],
-                location: "Kolkata · On-site",
-                tech: [
-                    "nextjs",
-                    "react",
-                    "expressjs",
-                    "nestjs",
-                    "ts",
-                    "tailwind",
-                    "shadcnui",
-                    "prisma",
-                    "pg",
-                ],
-                icon: Terminal,
-            },
-        ],
-    },
-    {
         company: "Freelance",
         active: false,
         logo: "/assets/logos/surojit.png",
@@ -100,23 +141,32 @@ export const experiences: IExperience[] = [
         role: [
             {
                 title: "Full-Stack Developer",
-                description: `- Developed 15+ real-world projects, including full-stack web apps and automation tools (like Discord bots).
-- Practiced the entire SDLC — from planning and development to testing, deployment, and ongoing support.
-- Built scalable, production-ready applications with modern web technologies.
-- Focused on clean architecture, performance, and maintainability in every project.`,
+                description: `- Delivered 15+ client projects end to end across web apps and integrations.
+- Handled full lifecycle from requirement gathering to delivery and deployment.
+- Owned client communication, scoping, UI, APIs, data modeling, and handoff.
+- Maintained and iterated production client apps after launch.`,
                 duration: ["Aug 2022", "Dec 2025"],
                 location: "Remote",
                 tech: [
                     "nextjs",
                     "react",
                     "ts",
+                    "js",
+                    "nodejs",
+                    "expressjs",
                     "tailwind",
                     "shadcnui",
                     "prisma",
                     "pg",
-                    "mdx",
                     "mongo",
-                    "go",
+                    "payload",
+                    "zod",
+                    "axios",
+                    "tanstackQuery",
+                    "mdx",
+                    "docker",
+                    "githubactions",
+                    "betterauth",
                 ],
                 icon: Terminal,
             },
