@@ -1,6 +1,7 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactLenis } from "lenis/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useState } from "react";
 
@@ -29,7 +30,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
                 defaultTheme="dark"
                 attribute="class"
             >
-                {children}
+                <ReactLenis root>{children}</ReactLenis>
             </NextThemesProvider>
         </QueryClientProvider>
     );
