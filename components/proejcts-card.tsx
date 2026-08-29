@@ -2,7 +2,6 @@
 
 import { IFrontMatter } from "@/lib/mdx";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import { Icons } from "@/components/icons";
